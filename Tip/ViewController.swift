@@ -14,24 +14,30 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
-    @IBOutlet weak var totalLabel: UILabel!
+    @IBOutlet weak var settingsButton: UIBarButtonItem!
     @IBOutlet weak var tipPercentageLabel: UILabel!
-    @IBOutlet weak var tipControl: UISegmentedControl!
+    @IBOutlet weak var tipAmountLabel: UILabel!
+    @IBOutlet weak var tipSlider: UISlider!
+    @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var billAmountTextField: UITextField!
     
+    
     @IBAction func onTap(_ sender: Any) {
-        view.endEditing(true)
+        view.endEditing(false)
     }
     
     @IBAction func calculateTip(_ sender: Any) {
         let bill = Double(billAmountTextField.text!) ?? 0
-        let tipPercentages = [0.15, 0.18, 0.2]
         
-        let tip = bill * tipPercentages[tipControl.selectedSegmentIndex]
+        let tipPercent = Double((tipSlider.value * 100).rounded() / 100)
+        let tip = bill * tipPercent
         let total = bill + tip
         
-        tipPercentageLabel.text = String(format: "$%.2f", tip)
+        tipAmountLabel.text = String(format: "$%.2f", tip)
+        tipPercentageLabel.text = String(format: "%.0f%%", tipPercent * 100)
         totalLabel.text = String(format: "$%.2f", total)
     }
+    
+    
 }
 
