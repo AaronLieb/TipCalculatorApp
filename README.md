@@ -28,7 +28,7 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='https://media.discordapp.net/attachments/561719148212650005/752055270590382200/ezgif-1-1d1f30ad4a7e.gif' />
+https://imgur.com/a/3DAP3NR
 
 ## Notes
 
